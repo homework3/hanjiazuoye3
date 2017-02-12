@@ -58,7 +58,7 @@ int main()
 	if (language == 'E')
 	{
 		languagesigh = 2;
-		cout << "Please enter the subject number(After each question, please enter the answer):";
+.		cout << "Please enter the subject number(After each question, please enter the answer):";
 	}
 	srand(time(0));
 	int k1, k2, k3, k4, m1, m2, m3, a, b, c;
@@ -104,7 +104,7 @@ int main()
 		if (languagesigh == 1)
 			cout << "您答对了" << right << "道题;" << "答错了" << c - right << "道题" << endl;
 		if (languagesigh == 2)
-			cout << "You are right " << right << " problems;" << "you are wrong " << c - right << " problems" << endl;
+			cout << "You are right " << right << " problems;" << "you are wrong " << c - right << " problems." << endl;
 	}
 	system("pause");
 	return 0;

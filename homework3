@@ -1,5 +1,6 @@
 #include"ctime"
 #include"iostream"
+#include<stdlib.h>
 #define Z '+'
 #define X '-'
 #define C '*'

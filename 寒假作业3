@@ -1,0 +1,113 @@
+#include"ctime"
+#include"iostream"
+#include<stdlib.h>
+#define Z '+'
+#define X '-'
+#define C '*'
+#define V '/'
+using namespace std;
+class Count
+{
+public:
+	int counting(int a, int b, int c);
+	int sigh(int d,char n);
+};
+int Count::counting(int a, int b, int c)
+{
+	float  t;
+	switch (a)
+	{
+	case 0:t = b + c; break;
+	case 1:t = b - c; break;
+	case 2:t = b * c; break;
+	case 3:
+		if (c == 0)
+			for (int j = 0;; j++)
+			{
+				c = rand() % 10;
+				if (c != 0)break;
+			}
+		t = b / c; break;
+		return t;
+	}
+}
+int Count::sigh(int d,char n)
+{
+	switch (d)
+	{
+	case 0:n = Z; break;
+	case 1:n = X; break;
+	case 2:n = C; break;
+	case 3:n = V; break;
+	}
+	return n;
+}
+int main()
+{
+	cout << "请选择语言（Please choose language)：" << endl;
+	cout << "中文：C" << endl;
+	cout << "English:E" << endl;
+	Count A;
+	char language;
+	int languagesigh = 0;
+	cin >> language;
+	if (language == 'C')
+	{
+		languagesigh = 1;
+		cout << "请输入题目数量(请在每题后面输入答案)：";
+	}
+	if (language == 'E')
+	{
+		languagesigh = 2;
+.		cout << "Please enter the subject number(After each question, please enter the answer):";
+	}
+	srand(time(0));
+	int k1, k2, k3, k4, m1, m2, m3, a, b, c;
+	float s, l1, l2;
+	int right = 0;
+	char n1='a', n2='a', n3='a', over;
+	cin >> b;
+	c = b;
+	for (int i = 0; i < b; i++)
+	{
+		k1 = rand() % 10;
+		k2 = rand() % 10;
+		k3 = rand() % 10;
+		k4 = rand() % 10;
+		m1 = rand() % 4;
+		m2 = rand() % 4;
+		m3 = rand() % 4;
+		l1 = A.counting(m1, k1, k2);
+		n1 = A.sigh(m1, n1);
+		l2 = A.counting(m3, k3, k4);
+		n3 = A.sigh(m3, n3);
+		n2 = A.sigh(m2, n2);
+		if (l2 == 0&&n2=='V')
+		{
+			b++;
+			continue;
+		}
+		s = A.counting(m2, l1, l2);
+		if (s - (int)s != 0)
+		{
+			b++;
+			continue;
+		}
+		cout << "（" << k1 << n1 << k2 << ")" << n2 << "(" << k3 << n3 << k4 << ")=" << endl;
+		cin >> a;
+		if (a == s)
+			right++;
+
+	}
+	cin >> over;
+	if (over == 'O')
+	{
+		if (languagesigh == 1)
+			cout << "您答对了" << right << "道题;" << "答错了" << c - right << "道题" << endl;
+		if (languagesigh == 2)
+			cout << "You are right " << right << " problems;" << "you are wrong " << c - right << " problems." << endl;
+	}
+	system("pause");
+	return 0;
+}
+

@@ -12,8 +12,9 @@ int main() {
 
 
 	srand(time(0));
-	int k1, k2, k3, k4, m1, m2, m3,l1,l2,s,a,b;
+	int k1, k2, k3, k4, m1, m2, m3,a,b;
 	int right = 0;
+	float s,l1,l2;
 	char n1, n2, n3;
 	cin >> b;//题目数量 
 	for (int i = 0; i < b; i++) {
@@ -44,7 +45,7 @@ int main() {
 						k2 = rand() % 10;
 						if (k2 != 0)break;
 					};
-				l1 = k1 / k2;
+				l1 = k1*1.0 / k2;
 				break;
 		}
 		switch (m3) {
@@ -67,11 +68,11 @@ int main() {
 						k4 = rand() % 10;
 						if (k4 != 0)break;
 					};
-				l2 = k3 / k4;
+				l2 = k3*1.0 / k4;
 				break;
 		}
 		if (l2 == 0) {
-			b++;
+			i--;
 			continue;
 		}
 		switch (m2) {
@@ -89,16 +90,16 @@ int main() {
 				break;
 			case 3:
 				n2 = V;
-				s = l1 / l2;
+				s = l1*1.0 / l2;
 				break;
 		}
 		if (s - (int)s != 0) {
-			b--;
+			i--;
 			continue;
 		}
-		else {
+		if (s - (int)s == 0){
 		cout << "（" << k1 << n1 << k2 << ")" << n2 << "(" << k3 << n3 << k4 << ")=" << endl;
-		cin >> a;
+		cin >> a;cout<<"答案是："<<s<<"\n";
 		if (a == s)
 			right++;
 }
